@@ -8,17 +8,16 @@ const allowed_accounts = [
     'tcdtradsoc',
     'tcdculinarysoc',
     'duzoosoc',
-    'duboxingclub',
-    'spacex',
-    'nasa',
-    'nasawebb',
-    'nasajpl'
+    'duboxingclub'
 ];
 
 
 function hidePosts() {
     document.querySelectorAll('article').forEach(function(article) {
         let account_element = article.querySelector('span._ap3a._aaco._aacw._aacx._aad7._aade');
+        if (!account_element){
+            article.style.display = 'none';
+        }
         let account_string = account_element.textContent.trim()
         console.log(account_string)
         if (!allowed_accounts.includes(account_string)){
